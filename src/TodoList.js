@@ -28,6 +28,9 @@ class TodoList extends Component{
                 <ul>
                     <li>英语</li>
                     <li>语文</li>
+                    <li>数学</li>
+                    <li>大数据</li>
+                    <li>Java</li>
                 </ul>
             </Fragment>
             
