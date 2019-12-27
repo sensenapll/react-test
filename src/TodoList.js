@@ -4,11 +4,13 @@ import TodoItem from './TodoItem'
 class TodoList extends Component{
     constructor(props){
         super();
+        // 当组件的state或者props发生改变时，render函数会重新执行
         this.state={
             inputValue:'',
             list:[]
         }
     }
+    
     // 获取input框的值
     handleInputChange = e =>{
         // 因为setState是异步，所有要将值在改变之前存储起来
@@ -63,7 +65,33 @@ class TodoList extends Component{
             )
         })
     }
+
+    // 组件被挂载到页面之前，自动被执行
+    componentWillMount(){
+        console.log('componentWillMount');   
+    }
+    // 组件被挂载到页面之后，自动被执行
+    componentDidMount(){
+        console.log('componentDidMount');
+    }
+    // 组件被更新之前，会被自动执行
+    shouldComponentUpdate(){
+        console.log('shouldComponentUpdate'); 
+        return true; 
+    }
+    // 组件更新之前执行，在shouldComponentUpdate之后执行
+    // 如果shouldComponentUpdate为true，则执行
+    // shouldComponentUpdate为false，则不执行
+    componentWillUpdate(){
+        console.log('componentWillUpdate');   
+    }
+    // 组件更新之后会被自动执行
+    componentDidUpdate(){
+        console.log('componentDidUpdate');
+        
+    }
     render() {
+        console.log('parent render');
         return(
             <Fragment>
                 <div>

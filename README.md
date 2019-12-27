@@ -38,3 +38,17 @@ cd 进去
 npm run start
 
 OK 了
+
+## React Diff算法理解
+
+1、state数据
+2、JSX模板
+3、数据+模板 结合，生成真实的DOM来显示
+<div id='abc'><span>hello world</span></div>
+4、生成虚拟DOM,(虚拟DOM就是一个JS对象，用它来描述真实的DOM)（损耗了性能）
+['div',{id:'abc'},['span',{},'hello world']]
+5、state发生了变化
+6、数据+模块生成新的虚拟DOM(极大提升了性能)(原因：虚拟DOM本质就是一个JS对象,JS中去比较js对象不怎么耗性能，但是比较真实的DOM会很耗性能)
+['div',{id:'abc'},['span',{},'bye bye']]
+7、比较原始虚拟DOM和新的虚拟DOM的区别，找到区别时span中的内容(极大提升了性能)
+8、直接操作DOM，改变span中的内容
