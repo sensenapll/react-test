@@ -1,5 +1,6 @@
 import React,{Component, Fragment} from 'react';
 import './index.css';
+import axios from 'axios';
 import TodoItem from './TodoItem'
 class TodoList extends Component{
     constructor(props){
@@ -71,13 +72,29 @@ class TodoList extends Component{
         console.log('componentWillMount');   
     }
     // 组件被挂载到页面之后，自动被执行
+    // 发送ajax请求的函数
     componentDidMount(){
+        // axios.get('/api/todoList')
+        // .then((res)=>{
+        //     // alert('成功');
+        //     this.setState(()=> ({
+        //         list:[...res.data]
+        //     }));
+        // })
+        // .catch(()=>{
+        //     alert('error');
+        // })
         console.log('componentDidMount');
     }
     // 组件被更新之前，会被自动执行
-    shouldComponentUpdate(){
-        console.log('shouldComponentUpdate'); 
-        return true; 
+    // react性能优化的函数,避免无谓的render的函数的运行
+    shouldComponentUpdate(nextProps,nextState){
+        // if(nextProps.content !== this.props.content){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
+        return true;
     }
     // 组件更新之前执行，在shouldComponentUpdate之后执行
     // 如果shouldComponentUpdate为true，则执行
@@ -87,8 +104,7 @@ class TodoList extends Component{
     }
     // 组件更新之后会被自动执行
     componentDidUpdate(){
-        console.log('componentDidUpdate');
-        
+       console.log('componentDidUpdate');
     }
     render() {
         console.log('parent render');
